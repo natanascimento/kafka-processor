@@ -11,14 +11,14 @@ class producerApiData():
     
     def __init__(self):
         self._meraki_api_key = os.getenv('MERAKI_API_KEY')
-        self.server = ''
-        self.port =  '9092'
+        self.server = os.getenv('KAFKA_SERVER')
+        self.port =  os.getenv('KAFKA_PORT')
         self.broker = '{}:{}'.format(self.server, self.port)
         self.headers = {'X-Cisco-Meraki-API-Key': self._meraki_api_key}
         self.api_uri = 'https://api.meraki.com/api/v0/'
 
     def kafkaConfig(self):
-        self.producer = KafkaProducer(bootstrap_servers='192.168.254.230:9092',
+        self.producer = KafkaProducer(bootstrap_servers=self.broker,
                                 value_serializer=lambda x:
                                 dumps(x).encode('utf-8'))
         return self.producer
