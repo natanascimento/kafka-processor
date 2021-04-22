@@ -1,9 +1,13 @@
-from kafka import KafkaProducer
 import json
 import random
 from time import sleep
 from datetime import datetime
 import os
+
+import dotenv
+from kafka import KafkaProducer
+
+dotenv.load_dotenv(dotenv.find_dotenv())
 
 # Create an instance of the Kafka producer
 producer = KafkaProducer(bootstrap_servers='{}:{}'.format(os.getenv('KAFKA_SERVER'), os.getenv('KAFKA_PORT')),
