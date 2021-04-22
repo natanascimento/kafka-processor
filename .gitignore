@@ -1,1 +1,6 @@
 .vscode/
+.env
+zk-single-kafka-single/
+.ipynb_checkpoints/
+kafka/
+__pycache__/
