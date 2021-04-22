@@ -22,8 +22,3 @@ if __name__ == '__main__':
       p.join()
     
   runInParallel(ProducerTweetsData, ConsumeTweetsData)
-      
-  
-        
-        
-    
