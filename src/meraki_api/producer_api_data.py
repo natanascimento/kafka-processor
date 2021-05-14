@@ -6,7 +6,6 @@ import json
 from kafka import KafkaProducer
 import os
 
-# 37c44cbc96731cbf8619a731c53b6e9ae4f200da
 class producerApiData():
     
     def __init__(self):
