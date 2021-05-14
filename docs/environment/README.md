@@ -6,3 +6,25 @@ For this, we use the Helm to manage Kubernetes applications, and provide the Kaf
 
 The operating system used for create this environment is an ***Ubuntu 20.04.2 LTS***
 
+##### If you don't know your operating system version, it's not a problem, use one of the commands below to checkout this:
+
+### Ubuntu
+```
+$ lsb_release -a
+```
+
+### Debian
+```
+$ lsb_release -d
+```
+
+### Windows
+```
+- [Windows] key + [R] - To open "Run" dialog box.
+- Write winver and click on [OK].
+```
+
+### Mac OS
+```
+$ sw_vers
+```
