@@ -1,4 +1,20 @@
 !/bin/bash
+#Installing Docker Engine
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo apt-key list
+sudo apt-key fingerprint 991BC93C
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 #Installing Virtualbox
 sudo apt-get update
 sudo apt-get install virtualbox
