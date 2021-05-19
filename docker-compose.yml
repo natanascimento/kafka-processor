@@ -1,6 +1,7 @@
-version: '2.1'
+version: "3.0"
 
 services:
+
   zookeeper:
     image: zookeeper:3.4.9
     container_name: zookeeper
@@ -29,7 +30,20 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_SCHEMA_REGISTRY_URL: "schemaregistry:8085"
     volumes:
       - ./zk-single-kafka-single/kafka/data:/var/lib/kafka/data
     depends_on:
       - zookeeper
+
+  schemaregistry:
+    image: confluentinc/cp-schema-registry:5.1.2
+    restart: always
+    depends_on:
+      - zookeeper
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "zookeeper:2181"
+      SCHEMA_REGISTRY_HOST_NAME: schemaregistry
+      SCHEMA_REGISTRY_LISTENERS: "http://0.0.0.0:8085"
+    ports:
+      - 8085:8085
