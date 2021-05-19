@@ -2,5 +2,6 @@
 .env
 zk-single-kafka-single/
 .ipynb_checkpoints/
+.confluent/
 kafka/
 __pycache__/
